@@ -31,7 +31,7 @@ const MessageHelper = require('./Helpers/MessageHelper');
 const LeagueHelper = require('./Helpers/LeagueHelper');
 
 //Bot prefix
-const botListeningPrefix = "!";
+const botListeningPrefix = "$";
 
 //Colors
 const messageColorRed = "#af0000";

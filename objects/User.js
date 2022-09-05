@@ -373,10 +373,14 @@ module.exports = {
                             '$text':{'$search': args.join(' ')}
                         },
                         function(err,res){
-                            if (res.length > 0){
-                                resolve(res)
-                            }
-                            else{
+                            try {
+                                if (res.length > 0){
+                                    resolve(res)
+                                }
+                                else{
+                                    resolve("Not a registered deck")
+                                }
+                            } catch (error) {
                                 resolve("Not a registered deck")
                             }
                         })
