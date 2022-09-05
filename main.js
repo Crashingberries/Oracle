@@ -13,7 +13,7 @@ bootstrap.mongoose.connect(bootstrap.Env.mongoConnectionUrl, { useNewUrlParser: 
  */
 bootstrap.Client.on('ready', () =>{
     console.log("Debug log: Successfully connected as " + bootstrap.Client.user.tag);
-    bootstrap.Client.user.setPresence({ activity: { name: 'with !help' }, status: 'online' })
+    bootstrap.Client.user.setPresence({ activity: { name: 'with ' +bootstrap.botListeningPrefix + 'help' }, status: 'online' })
     //Lists out the "guilds" in a discord server, these are the unique identifiers so the bot can send messages to server channels
     // client.guilds.cache.forEach((guild) => {
     //     console.log(guild.id)
@@ -52,7 +52,7 @@ bootstrap.Client.on('message', (receivedMessage) =>{
     if (receivedMessage.author === bootstrap.Client.user){
         return 
     }
-    if (receivedMessage.content.startsWith(bootstrap.botListeningPrefix)){
+    if (receivedMessage.content.startsWith(bootstrap.botListeningPrefix) && receivedMessage.channel.type !== 'dm'){
         processCommand(receivedMessage)
     }
     if (receivedMessage.content.indexOf("https://www.spelltable.com/game/") >= 0){
