@@ -15,16 +15,16 @@ module.exports = {
         Discord Bot Commands. A general guideline of steps to take follows")
             .setColor(bootstrap.messageColorGreen)
             .addFields(
-                {name: "Stuck?", value: "Use out **" + bootstrap.botListeningPrefix + "help <Command Name>** or **" + bootstrap.botListeningPrefix + "help** to find more information about a command"},
-                {name: "Step 1", value: "**Register** yourself for this server. You should receieved a congratulatory message back from the bot\nType **" + bootstrap.botListeningPrefix + "register**"},
+                {name: "Stuck?", value: "Use out **!help <Command Name>** or **!help** to find more information about a command"},
+                {name: "Step 1", value: "**Register** yourself for this server. You should receieved a congratulatory message back from the bot\nType **!register**"},
                 {name: "Step 2", value: "**Set** what deck you are using. The bot holds information about the deck you're using\n\
-            To find information about what decks are available, type **" + bootstrap.botListeningPrefix + "decks** \n\
-            Once you find a deck you want to use, type **" + bootstrap.botListeningPrefix + "use <Deck Name Here>**"},
+            To find information about what decks are available, type **!decks** \n\
+            Once you find a deck you want to use, type **!use <Deck Name Here>**"},
                 {name: "Step 3: You're done!", value: "You have successfully given the bot the information it needs! From here, there are many roads you can take\n\n\
-            Check out analytics on the server with commands like " + bootstrap.botListeningPrefix + "deckstats, " + bootstrap.botListeningPrefix + "profile and " + bootstrap.botListeningPrefix + "top\n\
-            Check out specific decks and their information with commands like " + bootstrap.botListeningPrefix + "deckinfo and " + bootstrap.botListeningPrefix + "decks\n\
-            Log matches and climb the leaderboard with " + bootstrap.botListeningPrefix + "log\n\n\
-            With all of these commands, please type " + bootstrap.botListeningPrefix + "help <Command Name Here> to learn more. Thank you for joining the community!"},
+            Check out analytics on the server with commands like !deckstats, !profile and !top\n\
+            Check out specific decks and their information with commands like !deckinfo and !decks\n\
+            Log matches and climb the leaderboard with !log\n\n\
+            With all of these commands, please type !help <Command Name Here> to learn more. Thank you for joining the community!"},
             );
         receivedMessage.channel.send(tutorialEmbed);
     },
@@ -39,13 +39,13 @@ module.exports = {
             .setColor(bootstrap.messageColorGreen)
             .addFields(
                 {name: "Stuck?", value: "Use out !help <Command Name> or !help to find more information about a command"},
-                {name: "Step 1", value: "Start a new season for your server\nType " + bootstrap.botListeningPrefix + "startseason"},
+                {name: "Step 1", value: "Start a new season for your server\nType !startseason"},
                 {name: "Step 2", value: "Have users register for your new season\nTo participate, type !register "},
-                {name: "Step 3", value: "Set your decks before logging a game\nUse " + bootstrap.botListeningPrefix + "use <Deck Name> to set your deck\nUse " + bootstrap.botListeningPrefix + "decks to see pre-loaded decks. Add more decks with " + bootstrap.botListeningPrefix + "add and follow the formatting tips provided"},
-                {name: "Step 4", value: "Play games of Magic and then log them\n" + bootstrap.botListeningPrefix + "log @loser1 @loser2 @loser3\nThe person who logs the match is always the winner!\nIf there is a draw, use " + bootstrap.botListeningPrefix + "draw instead"},
+                {name: "Step 3", value: "Set your decks before logging a game\nUse !use <Deck Name> to set your deck\nUse !decks to see pre-loaded decks. Add more decks with !add and follow the formatting tips provided"},
+                {name: "Step 4", value: "Play games of Magic and then log them\n!log @loser1 @loser2 @loser3\nThe person who logs the match is always the winner!\nIf there is a draw, use !draw instead"},
                 {name: "Step 5", value: "That is it! Congrats on setting up this bot\nCheck !help to see everything it is capable of\nSubmit feature requests and fixes to the Github or the official Discord"}
             )
-            .setFooter("Note: By default, 'Admin' is anyone in your server with general Discord Administrative privileges. This is configurable using " + bootstrap.botListeningPrefix + "setconfig");
+            .setFooter("Note: By default, 'Admin' is anyone in your server with general Discord Administrative privileges. This is configurable using !setconfig");
         channel.send(welcomeEmbed);
     },
     async forceAccept(receivedMessage, args){
@@ -58,7 +58,7 @@ module.exports = {
                     .setColor(bootstrap.messageColorGreen)
                     .setAuthor("Match accepted")
                     .setDescription("The match you have entered is now accepted\n\
-            Use " + bootstrap.botListeningPrefix + "pending to find other pending matches");
+            Use !pending to find other pending matches");
                 generalChannel.send(successEmbed)
             }
             else if (returnArr === "Error"){
@@ -73,7 +73,7 @@ module.exports = {
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Match already accepted")
                     .setDescription("The match you have entered is already accepted\n\
-            Use " + bootstrap.botListeningPrefix + "delete <Match ID> to delete a match");
+            Use !delete <Match ID> to delete a match");
                 generalChannel.send(invalidInputEmbed)
             }
             else if (returnArr === "Can't find match"){
@@ -81,7 +81,7 @@ module.exports = {
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Can't find match")
                     .setDescription("You have entered an invalid match ID\n\
-            Check " + bootstrap.botListeningPrefix + "help acceptmatch for more information");
+            Check !help acceptmatch for more information");
                 generalChannel.send(invalidInputEmbed)
             }
         }
@@ -89,8 +89,8 @@ module.exports = {
             const invalidInputEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Incorrect Input")
-                .setDescription("Please type " + bootstrap.botListeningPrefix + "acceptmatch <Match ID>\n\
-        Check " + bootstrap.botListeningPrefix + "help acceptmatch for more information");
+                .setDescription("Please type !acceptmatch <Match ID>\n\
+        Check !help acceptmatch for more information");
             generalChannel.send(invalidInputEmbed)
         }
 
@@ -108,7 +108,7 @@ module.exports = {
             const noMatchesEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("No matches have been logged this season")
-                .setDescription("Log matches with " + bootstrap.botListeningPrefix + "log @loser1 @loser2 @loser3");
+                .setDescription("Log matches with !log @loser1 @loser2 @loser3");
             generalChannel.send(noMatchesEmbed)
         }
         else{
@@ -150,7 +150,7 @@ module.exports = {
             const noMatchesEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("No matches have been logged this season")
-                .setDescription("Log matches with " + bootstrap.botListeningPrefix + "log @loser1 @loser2 @loser3");
+                .setDescription("Log matches with !log @loser1 @loser2 @loser3");
             generalChannel.send(noMatchesEmbed)
         }
         else{
@@ -216,22 +216,22 @@ module.exports = {
                 .setColor(bootstrap.messageColorBlue)
                 .setAuthor("Displaying information about your configurations")
                 .addFields(
-                    {name: "Minimum Games (to appear on " + bootstrap.botListeningPrefix + "top)", value: playerThreshold},
-                    {name: "Minimum Decks (to appear on " + bootstrap.botListeningPrefix + "deckstats)", value:deckThreshold},
+                    {name: "Minimum Games (to appear on !top)", value: playerThreshold},
+                    {name: "Minimum Decks (to appear on !deckstats)", value:deckThreshold},
                     {name: "Points Gained (per win)", value: pointsGained},
                     {name: "Points Gained (per draw)", value: pointsDraw},
                     {name: "Points Lost (per loss)", value: pointsLost},
-                    {name: "Leaderboard Length - The number of players that show up on the leaderboard (" + bootstrap.botListeningPrefix + "top)", value: topThreshold},
+                    {name: "Leaderboard Length - The number of players that show up on the leaderboard (!top)", value: topThreshold},
                     {name: "Admin Privileges", value: adminPrivs}
                 )
-                .setFooter("Confused by what these thresholds mean? Use " + bootstrap.botListeningPrefix + "help setconfig \n\Want to edit these values? Use " + bootstrap.botListeningPrefix + "setconfig");
+                .setFooter("Confused by what these thresholds mean? Use !help setconfig \n\Want to edit these values? Use !setconfig");
             generalChannel.send(updatedEmbed)
         }
         else{
             const noConfigEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("No current information about your configurations")
-                .setDescription("Default configurations are provided to every server. Type " + bootstrap.botListeningPrefix + "setconfig to change these defaults");
+                .setDescription("Default configurations are provided to every server. Type !setconfig to change these defaults");
             generalChannel.send(noConfigEmbed)
         }
     },
@@ -337,9 +337,9 @@ module.exports = {
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Incorrect Input")
                 .setDescription("Please retry entering your list of admins in either format below: \n\
-                " + bootstrap.botListeningPrefix + "admin add <@discord role>\n\
-                " + bootstrap.botListeningPrefix + "admin remove <@discord role>")
-                .setFooter("For more info, type " + bootstrap.botListeningPrefix + "help admin");
+                !admin add <@discord role>\n\
+                !admin remove <@discord role>")
+                .setFooter("For more info, type !help admin");
             generalChannel.send(errorEmbed)
         }
     },
@@ -351,7 +351,7 @@ module.exports = {
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Incorrect Input")
                 .setDescription("Please retry entering your config. I understand the format: \n\
-        " + bootstrap.botListeningPrefix + "setconfig <Type> | <Value>\n\
+        !setconfig <Type> | <Value>\n\
         The types of configurations are:\n\
         'Minimum Games (A **number**)', \n\
         'Minimum Decks (A **number**)', \n\
@@ -388,7 +388,7 @@ module.exports = {
                 .setAuthor("Created a new set of configs for this server")
                 .setDescription("You have set the configuration:\n\
          **" + commandType + "** to **" + returnArr[2] + "**\n\
-         Your other configurations have been given default values. Type " + bootstrap.botListeningPrefix + "getconfig to see your changes");
+         Your other configurations have been given default values. Type !getconfig to see your changes");
             generalChannel.send(updatedEmbed)
         }
     },
@@ -408,14 +408,14 @@ module.exports = {
                 const errorUserEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setDescription(args.join(' ')+" has already been used for a season or is currently being used for this season")
-                    .setFooter("To see all season names try " + bootstrap.botListeningPrefix + "seasoninfo all");
+                    .setFooter("To see all season names try !seasoninfo all");
                 generalChannel.send(errorUserEmbed)
             }
             else if (returnArr === "No Current"){
                 const errorEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("There is no on-going Season")
-                    .setDescription("Please start a new season using " + bootstrap.botListeningPrefix + "startseason");
+                    .setDescription("Please start a new season using !startseason");
                 generalChannel.send(errorEmbed)
             }
             else{
@@ -434,7 +434,7 @@ module.exports = {
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Please enter an end date")
                 .setDescription("Please type in the format: MM/DD/YYYY\n\
-        Type " + bootstrap.botListeningPrefix + "help setendseason for more information");
+        Type !help setendseason for more information");
             generalChannel.send(errorEmbed);
             return
         }
@@ -487,7 +487,7 @@ module.exports = {
                 const noSeasonEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("There is no on-going season")
-                    .setDescription("To start a new season, try " + bootstrap.botListeningPrefix + "startseason\nTo see information about another season, try " + bootstrap.botListeningPrefix + "seasoninfo <Season Name>");
+                    .setDescription("To start a new season, try !startseason\nTo see information about another season, try !seasoninfo <Season Name>");
                 generalChannel.send(noSeasonEmbed)
             }
             else{
@@ -520,7 +520,7 @@ module.exports = {
                 const noSeasonEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("There have been no Seasons on this server")
-                    .setDescription("To start a new season, try " + bootstrap.botListeningPrefix + "startseason");
+                    .setDescription("To start a new season, try !startseason");
                 generalChannel.send(noSeasonEmbed)
             }
         }
@@ -530,7 +530,7 @@ module.exports = {
                 const cantFindEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Cannot Find Specified Season: " + args.join(' ').toString())
-                    .setDescription("To find a season, try " + bootstrap.botListeningPrefix + "seasoninfo <Season Name>.\nTo find information on all seasons, try " + bootstrap.botListeningPrefix + "seasoninfo all");
+                    .setDescription("To find a season, try !seasoninfo <Season Name>.\nTo find information on all seasons, try !seasoninfo all");
                 generalChannel.send(cantFindEmbed)
             }
             else{
@@ -554,7 +554,7 @@ module.exports = {
             confirmEndSeason
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("There is no on-going season")
-                .setDescription("To start a new season, try " + bootstrap.botListeningPrefix + "startseason");
+                .setDescription("To start a new season, try !startseason");
             generalChannel.send(confirmEndSeason)
         }
         else{
@@ -565,7 +565,7 @@ module.exports = {
                 .setAuthor("WARNING: You are attempting to end the current season named: " + currentSeason._season_name)
                 .setTitle("Are you sure you want to end the current season?")
                 .setDescription("<@!" + receivedMessage.author.id+">"+" When a season ends: leaderboards are reset, player's personal ratings are reset and rewards are distributed\n\
-        Use " + bootstrap.botListeningPrefix + "pending to see pending matches")
+        Use !pending to see pending matches")
                 .setFooter("React thumbs up to end the current season, react thumbs down to cancel");
             if (returnArr.length > 0){
                 if (returnArr === "No Pending"){
@@ -603,7 +603,7 @@ module.exports = {
                     .addFields(
                     {name: "End Date", value: "No end date set", inline: true}
                     )
-                    .setFooter("Looks like you don't have a set end date. \nEnd the season at any time with " + bootstrap.botListeningPrefix + "endseason or set an end date in advanced with " + bootstrap.botListeningPrefix + "setendseason");
+                    .setFooter("Looks like you don't have a set end date. \nEnd the season at any time with !endseason or set an end date in advanced with !setendseason");
             }
             else{
                 ongoingEmbed
@@ -623,8 +623,8 @@ module.exports = {
             const startSeason = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorGreen)
                 .setTitle("Successfully started a new Season")
-                .setDescription("By default, seasons are given a name and no end date.\nTo change this, use commands:\n!setseasonname - sets the current season name\n!setenddate - sets a pre-determined end date for the season\n" + bootstrap.botListeningPrefix + "endseason - ends the current season")
-                .setFooter("End the season at any time with " + bootstrap.botListeningPrefix + "endseason or set an end date in advanced with " + bootstrap.botListeningPrefix + "setendseason")
+                .setDescription("By default, seasons are given a name and no end date.\nTo change this, use commands:\n!setseasonname - sets the current season name\n!setenddate - sets a pre-determined end date for the season\n!endseason - ends the current season")
+                .setFooter("End the season at any time with !endseason or set an end date in advanced with !setendseason")
                 .addFields(
                     {name: "Start Date", value: returnArr[1], inline: true},
                     {name: "End Date", value: "No end date set", inline: true},
@@ -667,9 +667,9 @@ module.exports = {
                .setColor(bootstrap.messageColorRed)
                .setAuthor("Invalid Input")
                .setDescription("I didn't quite understand what you meant. \n\
-               Please either type " + bootstrap.botListeningPrefix + "top to see a list of the current season's top players \n\
-               or " + bootstrap.botListeningPrefix + "top | <Season Name Here> to see a list of a specified season's top players")
-               .setFooter("Seasons are case sensitive! Make sure you are spelling the season name correctly. See a list of all seasons with " + bootstrap.botListeningPrefix + "seasoninfo all")
+               Please either type !top to see a list of the current season's top players \n\
+               or !top | <Season Name Here> to see a list of a specified season's top players")
+               .setFooter("Seasons are case sensitive! Make sure you are spelling the season name correctly. See a list of all seasons with !seasoninfo all")
             generalChannel.send(errorMsg);
             return
         }
@@ -720,8 +720,8 @@ module.exports = {
             }
             resultsMsg
                 .setColor(bootstrap.messageColorBlue)
-                .setFooter("Note: The threshold to appear on this list is " + minimumGamesThreshold.toString() + " game(s)\nAdmins can configure this using " + bootstrap.botListeningPrefix + "setconfig");
-            if (allCheck){ //When a user types " + bootstrap.botListeningPrefix + "top | all
+                .setFooter("Note: The threshold to appear on this list is " + minimumGamesThreshold.toString() + " game(s)\nAdmins can configure this using !setconfig");
+            if (allCheck){ //When a user types !top | all
                 resultsMsg
                     .setAuthor("Displaying Top Players for the season name: " + args.join(' '));
                 for (let i = 0; i < sortedResults.length; i++){
@@ -744,7 +744,7 @@ module.exports = {
                   );
                 }
             }
-            else{ //When a user specifies a season, or just types " + bootstrap.botListeningPrefix + "top
+            else{ //When a user specifies a season, or just types !top
                 resultsMsg
                     .setAuthor("Displaying Top Players for the season name: " + splitArgs[1]);
                 for (let i = 0; i < sortedResults.length; i++){
@@ -768,14 +768,14 @@ module.exports = {
                 }
             }
             resultsMsg.setFooter("Note: The threshold to appear on this list is " + minimumGamesThreshold.toString() + " game(s)\n" +
-                "This list displays the top " +topPlayersThreshold.toString() +" players \nAdmins can configure both of these using " + bootstrap.botListeningPrefix + "setconfig");
+                "This list displays the top " +topPlayersThreshold.toString() +" players \nAdmins can configure both of these using !setconfig");
             if (args.length === 0){
                 resultsMsg
                     .setAuthor("Displaying Top Players of the current season")
             }
             if (resultsMsg.fields.length === 0){
                 resultsMsg
-                    .setDescription("Seasons are case sensitive! Make sure you are spelling the season name correctly. See a list of all seasons with " + bootstrap.botListeningPrefix + "seasoninfo all")
+                    .setDescription("Seasons are case sensitive! Make sure you are spelling the season name correctly. See a list of all seasons with !seasoninfo all")
                     .setAuthor("No Top Players yet for the specified season")
             }
             generalChannel.send(resultsMsg)
@@ -789,14 +789,14 @@ module.exports = {
         if (args.length === 0){
             const errorEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
-                .setDescription("Please enter the name of a deck, type " + bootstrap.botListeningPrefix + "deckinfo <Deck Name>.\nUse " + bootstrap.botListeningPrefix + "decks to find a list of decks");
+                .setDescription("Please enter the name of a deck, type !deckinfo <Deck Name>.\nUse !decks to find a list of decks");
             generalChannel.send(errorEmbed);
             return
         }
         if (returnArr === "Error 1"){
             const errorEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
-                .setDescription("Error finding the deck **" + args.join(' ') + "** \nUse " + bootstrap.botListeningPrefix + "decks to find a list of decks");
+                .setDescription("Error finding the deck **" + args.join(' ') + "** \nUse !decks to find a list of decks");
             generalChannel.send(errorEmbed);
         }
         else{
@@ -836,7 +836,7 @@ module.exports = {
                 const closeToResEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorBlue)
                     .setDescription("You typed: '" + rawArgs.join(' ') + "' I didn't quite understand that. Did you mean to type any of the following?\
-                The " + bootstrap.botListeningPrefix + "deckinfo command searches by deck name. Type " + bootstrap.botListeningPrefix + "help deckinfo for more information")
+                The !deckinfo command searches by deck name. Type !help deckinfo for more information")
                     .setFooter("Decks are displayed in the format: \nDeck Name\nCommander(s) Name(s)");
                 for (let key in returnArr[1]) {
                     closeToResEmbed
@@ -861,7 +861,7 @@ module.exports = {
             .setColor(bootstrap.messageColorRed)
             .setDescription("It looks like you're trying to access the **" + command + "** command.\n\
             This is an **Admin Only** command.\n\
-            If you would like to access this command, you need to add a **role** using " + bootstrap.botListeningPrefix + "setconfig.");
+            If you would like to access this command, you need to add a **role** using !setconfig.");
         generalChannel.send(adminAccessNotGrantedEmbed)
     },
     async updateDeck(receivedMessage, args){
@@ -871,7 +871,7 @@ module.exports = {
         if (promiseReturn === "Error 1"){
             updateDeckEmbed
                 .setColor(bootstrap.messageColorRed) //red
-                .setDescription("Error deck not found. Try " + bootstrap.botListeningPrefix + "help, " + bootstrap.botListeningPrefix + "decks or use the format " + bootstrap.botListeningPrefix + "removedeck <deckname>");
+                .setDescription("Error deck not found. Try !help, !decks or use the format !removedeck <deckname>");
             generalChannel.send(updateDeckEmbed)
         }
         else{
@@ -915,8 +915,8 @@ module.exports = {
             addingDeckEmbed
                 .setColor(bootstrap.messageColorRed) //red
                 .setDescription("Error deck not found\n\
-        Please use the format " + bootstrap.botListeningPrefix + "removedeck <Deck Name>\n\
-        For more information, check " + bootstrap.botListeningPrefix + "help removedeck");
+        Please use the format !removedeck <Deck Name>\n\
+        For more information, check !help removedeck");
             generalChannel.send(addingDeckEmbed)
         }
         else{
@@ -984,7 +984,7 @@ module.exports = {
                 .setDescription("For user: "+ "<@!"+returnArr[1]+">"+ "\n\
         For Season Name: " + returnArr[4] + "\n\
         Looking for more info? Add ' | <Season Name> ' or ' | all ' to your query to find more information")
-                .setFooter("Looking for detailed deck breakdown? Try " + bootstrap.botListeningPrefix + "profile @user to see exactly what decks this user plays.")
+                .setFooter("Looking for detailed deck breakdown? Try !profile @user to see exactly what decks this user plays.")
                 .addFields(
                     { name: 'Wins', value: returnArr[2], inline: true},
                     { name: 'Losses', value: returnArr[3], inline: true},
@@ -1031,7 +1031,7 @@ module.exports = {
                 allDecksEmbed.setDescription("No Data within your Threshold for the season named: " + returnArr[2]);
             }
             allDecksEmbed
-                .setFooter("Note: The threshold to appear on this list is " + threshold.toString() + " game(s)\nAdmins can configure this using " + bootstrap.botListeningPrefix + "setconfig\nLooking for detailed deck breakdown? Try " + bootstrap.botListeningPrefix + "deckinfo <deckname> to see more about specific decks");
+                .setFooter("Note: The threshold to appear on this list is " + threshold.toString() + " game(s)\nAdmins can configure this using !setconfig\nLooking for detailed deck breakdown? Try !deckinfo <deckname> to see more about specific decks");
             generalChannel.send(allDecksEmbed)
         }
         else if (returnArr[0] === "No Games Played"){
@@ -1046,25 +1046,25 @@ module.exports = {
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Improper Input")
                 .setDescription("It looks like you're trying to search for deckstats by season.\n\
-        Proper format: " + bootstrap.botListeningPrefix + "deckstats | <Season Name>");
+        Proper format: !deckstats | <Season Name>");
             generalChannel.send(errorMsg)
         }
         else if (returnArr === "Can't find deck"){
             deckStatsEmbed
                 .setColor(bootstrap.messageColorRed) //red
                 .setDescription("No games have been logged with that name in that season. \n\
-         Try " + bootstrap.botListeningPrefix + "decks to find a list of decks for this server \n\
+         Try !decks to find a list of decks for this server \n\
          Example Commands involving deckstats: \n\
-         " + bootstrap.botListeningPrefix + "deckstats <deckname> to find information about a deck across all seasons.\n\
-         " + bootstrap.botListeningPrefix + "deckstats <deckname> | <seasonname> to find information about a deck in a specific season.\n\
-         " + bootstrap.botListeningPrefix + "deckstats @user to find information about a user's deckstats.");
+         !deckstats <deckname> to find information about a deck across all seasons.\n\
+         !deckstats <deckname> | <seasonname> to find information about a deck in a specific season.\n\
+         !deckstats @user to find information about a user's deckstats.");
             generalChannel.send(deckStatsEmbed)
         }
         else{
             const closeToResEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorBlue)
                 .setDescription("You typed: '" + args.join(' ') + "' I didn't quite understand the deck you inputted. Did you mean to type any of the following?\n\
-            The " + bootstrap.botListeningPrefix + "deckstats command will give suggestions when it doesn't understand exactly what you typed")
+            The !deckstats command will give suggestions when it doesn't understand exactly what you typed")
                 .setFooter("Decks are displayed in the format: \nDeck Name\nCommander(s) Name(s)");
             for (let key in returnArr) {
                 closeToResEmbed
@@ -1080,8 +1080,8 @@ module.exports = {
         if (args.length === 0){
             const noLengthEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
-                .setDescription("You have entered no arguments to this command. Please type " + bootstrap.botListeningPrefix + "use <Deck Name> to set your deck\n\
-        Type " + bootstrap.botListeningPrefix + "help use for more information");
+                .setDescription("You have entered no arguments to this command. Please type !use <Deck Name> to set your deck\n\
+        Type !help use for more information");
             generalChannel.send(noLengthEmbed)
         }
         else{
@@ -1091,36 +1091,36 @@ module.exports = {
                     .setColor(bootstrap.messageColorGreen)
                     .setAuthor("Success")
                     .setDescription("Successfully set <@!" + receivedMessage.author.id + ">'s deck to: " + bootstrap.DeckHelper.toUpper(args.join(' ')))
-                    .setFooter("You’ve now set your deck for this server\nStart logging games with the " + bootstrap.botListeningPrefix + "log command\nType " + bootstrap.botListeningPrefix + "help log for more information");
+                    .setFooter("You’ve now set your deck for this server\nStart logging games with the !log command\nType !help log for more information");
                 generalChannel.send(successEmbed)
             }
             else if (returnArr === "Not a registered deck"){
                 const notRegisteredEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("No suggestions on your input could be made. Please try again")
-                    .setDescription("Type " + bootstrap.botListeningPrefix + "decks to see a list of available decks");
+                    .setDescription("Type !decks to see a list of available decks");
                 generalChannel.send(notRegisteredEmbed)
             }
             else if (returnArr === "Can't find user"){
                 const noUserEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("You are not registered")
-                    .setDescription("Make sure to type " + bootstrap.botListeningPrefix + "register before trying to use a deck");
+                    .setDescription("Make sure to type !register before trying to use a deck");
                 generalChannel.send(noUserEmbed)
             }
             else if (returnArr === "Too many args"){
                 const badInputEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Improper input")
-                    .setDescription("Type " + bootstrap.botListeningPrefix + "use <Deck Name> or " + bootstrap.botListeningPrefix + "use <Deck Name> | Rogue")
-                    .setFooter("Type " + bootstrap.botListeningPrefix + "help or " + bootstrap.botListeningPrefix + "decks to learn more about 'Rogue'");
+                    .setDescription("Type !use <Deck Name> or !use <Deck Name> | Rogue")
+                    .setFooter("Type !help or !decks to learn more about 'Rogue'");
                 generalChannel.send(badInputEmbed)
             }
             else{
                 const closeToResEmbed = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorBlue)
                     .setDescription("You typed: '" + rawArgs.join(' ') + "' I didn't quite understand that. Did you mean to type any of the following?\
-                The " + bootstrap.botListeningPrefix + "use command will give suggestions when it doesn't understand exactly what you typed")
+                The !use command will give suggestions when it doesn't understand exactly what you typed")
                     .setFooter("Decks are displayed in the format: \nDeck Name\nCommander(s) Name(s)");
                 for (let key in returnArr) {
                     closeToResEmbed
@@ -1157,10 +1157,10 @@ module.exports = {
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Improper Input")
                     .setTitle("You're attempting to check a recent match log")
-                    .setDescription("Type " + bootstrap.botListeningPrefix + "recent **@user** when searching other users recent matches or 'server' to see server matches\n\
+                    .setDescription("Type !recent **@user** when searching other users recent matches or 'server' to see server matches\n\
                     Type \"more\" after the command to load more results\n\n\
-                    It looks like you're having trouble with " + bootstrap.botListeningPrefix + "recent @user. Make sure to mention the user and type nothing after \n\n\
-                    Check " + bootstrap.botListeningPrefix + "help recent for more information on proper usage");
+                    It looks like you're having trouble with !recent @user. Make sure to mention the user and type nothing after \n\n\
+                    Check !help recent for more information on proper usage");
                 generalChannel.send(errorEmbed);
                 return
             }
@@ -1177,10 +1177,10 @@ module.exports = {
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Improper Input")
                     .setTitle("You're attempting to check a recent match log")
-                    .setDescription("Type " + bootstrap.botListeningPrefix + "recent **@user** when searching other users recent matches or 'server' to see server matches\n\
+                    .setDescription("Type !recent **@user** when searching other users recent matches or 'server' to see server matches\n\
                 Type \"more\" after the command to load more results\n\n\
-                It looks lke you're having trouble with " + bootstrap.botListeningPrefix + "recent @user more or " + bootstrap.botListeningPrefix + "recent @user server. Make sure to mention the user and only write 'server' or 'more' after\n\n\
-                Check " + bootstrap.botListeningPrefix + "help recent for more information on proper usage");
+                It looks lke you're having trouble with !recent @user more or !recent @user server. Make sure to mention the user and only write 'server' or 'more' after\n\n\
+                Check !help recent for more information on proper usage");
                 generalChannel.send(errorEmbed);
                 return
             }
@@ -1198,9 +1198,9 @@ module.exports = {
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Improper Input")
                 .setTitle("You're attempting to check a recent match log")
-                .setDescription("Type " + bootstrap.botListeningPrefix + "recent **@user** when searching other users recent matches or 'server' to see server matches\n\
+                .setDescription("Type !recent **@user** when searching other users recent matches or 'server' to see server matches\n\
                     Type \"more\" after the command to load more results\n\
-                    Check " + bootstrap.botListeningPrefix + "help recent for more information on proper usage");
+                    Check !help recent for more information on proper usage");
             generalChannel.send(errorEmbed);
             return
         }
@@ -1287,7 +1287,7 @@ module.exports = {
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("No On-Going Season")
                 .setDescription("There is no on-going season. Please start a season before logging matches")
-                .setFooter("Admins can use " + bootstrap.botListeningPrefix + "startseason");
+                .setFooter("Admins can use !startseason");
             generalChannel.send(errorMsg);
             return
         }
@@ -1304,7 +1304,7 @@ module.exports = {
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Improper input")
                 .setDescription("Please submit only the **3 players** who lost or drew in the pod")
-                .setFooter("Example: " + bootstrap.botListeningPrefix + "log @user @user @user \n" +
+                .setFooter("Example: !log @user @user @user \n" +
                     "Tip: Have one space between each @use tag");
             generalChannel.send(errorMsg);
             return
@@ -1343,8 +1343,8 @@ module.exports = {
                     const errorMsg = new bootstrap.Discord.MessageEmbed()
                         .setColor(bootstrap.messageColorRed)
                         .setAuthor("Unregistered User")
-                        .setDescription("<@!"+mentionValues[i][0]+">" + " isn't registered, type " + bootstrap.botListeningPrefix + "register")
-                        .setFooter("Make sure to use the Discord Mention feature when using this command. Check " + bootstrap.botListeningPrefix + "help log for more information");
+                        .setDescription("<@!"+mentionValues[i][0]+">" + " isn't registered, type !register")
+                        .setFooter("Make sure to use the Discord Mention feature when using this command. Check !help log for more information");
                     generalChannel.send(errorMsg);
                     someNotRegistered = true
                 }
@@ -1360,8 +1360,8 @@ module.exports = {
                             .setColor(bootstrap.messageColorRed)
                             .setAuthor("Deck not set")
                             .setDescription("<@"+mentionValues[i][0]+">" + " Looks like we don’t know what deck you’re using\n\
-                    Please tell us what deck you’re using by typing: " + bootstrap.botListeningPrefix + "use <Deck Name>\n\
-                    To get a list of decks, type: " + bootstrap.botListeningPrefix + "decks");
+                    Please tell us what deck you’re using by typing: !use <Deck Name>\n\
+                    To get a list of decks, type: !decks");
                         generalChannel.send(someMsg);
                         someDeckNotSet = true
                     }
@@ -1370,8 +1370,8 @@ module.exports = {
                             .setColor(bootstrap.messageColorRed)
                             .setAuthor("Deck now Invalid")
                             .setDescription("<@"+mentionValues[i][0]+">" + " Looks like you're using a deck that was deleted from the server\n\
-                    Please set a new deck by typing: " + bootstrap.botListeningPrefix + "use <Deck Name>\n\
-                    To get a list of decks, type: " + bootstrap.botListeningPrefix + "decks");
+                    Please set a new deck by typing: !use <Deck Name>\n\
+                    To get a list of decks, type: !decks");
                         generalChannel.send(someMsg);
                         someDeckNotSet = true
                     }
@@ -1447,8 +1447,8 @@ module.exports = {
                     .setColor(bootstrap.messageColorGreen)
                     .setTitle("I have Direct Messaged you decks! Don't see what you're looking for?")
                     .setDescription("Using 'Rogue' when logging matches will encompass decks not on this list. \
-            Try '" + bootstrap.botListeningPrefix + "use <deckname> | Rogue' to be able to use **any deck**.")
-                    .setFooter("Looking for a specific color combination? Check " + bootstrap.botListeningPrefix + "help decks to learn what I search by.");
+            Try '!use <deckname> | Rogue' to be able to use **any deck**.")
+                    .setFooter("Looking for a specific color combination? Check !help decks to learn what I search by.");
                 generalChannel.send(helperEmbed);
                 return;
             }
@@ -1460,7 +1460,7 @@ module.exports = {
                         .setAuthor("No results found on this server")
                         .setDescription("We could not find any information on the key word(s): '" + args.join(' ') + "' for this server.\n\
                 Please refine your search and try again.")
-                        .setFooter("Searching for partners? Type either name or search for both by separating them with a '/'. Ex: " + bootstrap.botListeningPrefix + "decks tymna / thrasios");
+                        .setFooter("Searching for partners? Type either name or search for both by separating them with a '/'. Ex: !decks tymna / thrasios");
                     generalChannel.send(noResEmbed)
                 }
                 else{
@@ -1521,8 +1521,8 @@ module.exports = {
                 .setColor(bootstrap.messageColorGreen)
                 .setTitle("I have Direct Messaged you this server's Decks. Don't see what you're looking for?")
                 .setDescription("Using 'Rogue' when logging matches will encompass decks not on this list. \
-        Try '" + bootstrap.botListeningPrefix + "use <deckname> | Rogue' to be able to use **any deck**.")
-                .setFooter("Looking for a specific color combination? Check " + bootstrap.botListeningPrefix + "help decks to learn what I search by.");
+        Try '!use <deckname> | Rogue' to be able to use **any deck**.")
+                .setFooter("Looking for a specific color combination? Check !help decks to learn what I search by.");
             generalChannel.send(helperEmbed)
         }).catch(() =>
             receivedMessage.reply("I don't have permission to send you messages! Please change your settings under this server's *Privacy Settings* section"))
@@ -1563,13 +1563,13 @@ module.exports = {
             commanderName = commanderName.replace(/  /g, ', ');
 
             if((hasPrimer.toLowerCase() !== "yes") && (hasPrimer.toLowerCase() !== "no")){
-                errorEmbed.setDescription("Incorrect input format. Try this format: \n" + bootstrap.botListeningPrefix + "add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n \
+                errorEmbed.setDescription("Incorrect input format. Try this format: \n!add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n \
             It looks like you're having trouble with the Primer. Make sure your primer section is 'Yes' or 'No'");
                 generalChannel.send(errorEmbed);
                 return
             }
             if ((deckType.toLowerCase() !== "proactive")&& (deckType.toLowerCase() !== "adaptive")&&(deckType.toLowerCase() !== "disruptive")){
-                errorEmbed.setDescription("Incorrect input format. Try this format: \n" + bootstrap.botListeningPrefix + "add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n \
+                errorEmbed.setDescription("Incorrect input format. Try this format: \n!add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n \
             It looks like you're having trouble with the Deck Type. The three deck types are: Proactive, Adaptive and Disruptive");
                 generalChannel.send(errorEmbed);
                 return
@@ -1590,7 +1590,7 @@ module.exports = {
             colorIdentity = colorIdentity.replace(/ /g, '');
             for (let letter of colorIdentity) {
                 if (letter !== ("w") &&letter !== ("u") &&letter !== ("b") &&letter !== ("r") &&letter !== ("g") &&letter !== ("c")){
-                    errorEmbed.setDescription("Incorrect input format. Try this format: \n" + bootstrap.botListeningPrefix + "add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n \
+                    errorEmbed.setDescription("Incorrect input format. Try this format: \n!add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n \
                 It looks like you're having trouble with the Color. Correct input includes the 6 letters 'WUBRG' in some combination or 'C'");
                     generalChannel.send(errorEmbed);
                     return;
@@ -1639,7 +1639,7 @@ module.exports = {
             }
         }
         else{
-            errorEmbed.setDescription("Incorrect input format. Try this format: \n" + bootstrap.botListeningPrefix + "add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n\n\
+            errorEmbed.setDescription("Incorrect input format. Try this format: \n!add Deck Alias | Commander | Color | Deck Link | Author | Deck Description | Deck Type | Has Primer? (Yes/No) | Discord Link \n\n\
         It looks like you have the incorrect number of inputs. I recommend copy and pasting the line above and filling out your information");
             generalChannel.send(errorEmbed);
         }
@@ -1661,7 +1661,7 @@ module.exports = {
             const errorUserEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
                 .setDescription("Cannot find specified user: " + user)
-                .setFooter("User is not registered for this league. Make sure you are using Discord Mentions and the user is registered. Type " + bootstrap.botListeningPrefix + "help profile for more information");
+                .setFooter("User is not registered for this league. Make sure you are using Discord Mentions and the user is registered. Type !help profile for more information");
             generalChannel.send(errorUserEmbed)
         }
         else if (returnArr[0] === "No On-Going Season"){
@@ -1701,7 +1701,7 @@ module.exports = {
             if (getThresholds !== "No configs"){ threshold = getThresholds._deck_threshold }
             const decksEmbed = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorBlue)
-                .setFooter("Note: The threshold to appear on this list is " + threshold.toString() + " game(s)\nAdmins can configure this using " + bootstrap.botListeningPrefix + "setconfig");
+                .setFooter("Note: The threshold to appear on this list is " + threshold.toString() + " game(s)\nAdmins can configure this using !setconfig");
             let sortedArray = returnArr[1].sort(function(a, b) {
                 return parseFloat(b[1]+b[2]) - parseFloat(a[1]+a[2]);
             });
@@ -1781,8 +1781,8 @@ module.exports = {
             const errorMsg = new bootstrap.Discord.MessageEmbed()
                 .setColor('#af0000')
                 .setAuthor("Incorrect Input")
-                .setDescription("Please type " + bootstrap.botListeningPrefix + "deletematch <Match ID>\n\
-                See " + bootstrap.botListeningPrefix + "help deletematch for more information.");
+                .setDescription("Please type !deletematch <Match ID>\n\
+                See !help deletematch for more information.");
             generalChannel.send(errorMsg);
             return
         }
@@ -1820,8 +1820,8 @@ module.exports = {
             const errorMsg = new bootstrap.Discord.MessageEmbed()
                 .setColor(bootstrap.messageColorRed)
                 .setAuthor("Incorrect input")
-                .setDescription("Use the format: " + bootstrap.botListeningPrefix + "info <Match ID>")
-                .setFooter("Check " + bootstrap.botListeningPrefix + "help info for more information");
+                .setDescription("Use the format: !info <Match ID>")
+                .setFooter("Check !help info for more information");
             generalChannel.send(errorMsg);
             return
         }
@@ -1893,14 +1893,14 @@ module.exports = {
             messageEmbed
                 .setColor(bootstrap.messageColorGreen)
                 .setDescription("<@!" + receivedMessage.author.id + ">" + " is now registered.")
-                .setFooter("You are now registered for this server\nBe sure to tell us what deck you’re using with the " + bootstrap.botListeningPrefix + "use <Deck Name> command\nCheck out a list of all decks on this server with the " + bootstrap.botListeningPrefix + "decks command");
+                .setFooter("You are now registered for this server\nBe sure to tell us what deck you’re using with the !use <Deck Name> command\nCheck out a list of all decks on this server with the !decks command");
             generalChannel.send(messageEmbed)
         }
         if (returnArr === "Already Registered"){
             messageEmbed
                 .setColor(bootstrap.messageColorRed)
                 .setDescription("<@!" + receivedMessage.author.id + ">" + " is already registered.")
-                .setFooter("Check your profile with the " + bootstrap.botListeningPrefix + "profile command");
+                .setFooter("Check your profile with the !profile command");
             generalChannel.send(messageEmbed)
         }
         else if (returnArr === "Error"){

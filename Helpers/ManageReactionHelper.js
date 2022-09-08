@@ -185,7 +185,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -225,7 +225,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Commander Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Commander Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
@@ -249,7 +249,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -299,7 +299,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Color Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Color Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
@@ -323,7 +323,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -370,7 +370,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Link Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Link Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
@@ -394,7 +394,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -435,7 +435,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Author Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Author Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
@@ -458,7 +458,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -509,7 +509,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Description Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Description Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
@@ -532,7 +532,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -581,7 +581,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Link Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Link Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
@@ -604,7 +604,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -654,7 +654,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Link Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Link Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
@@ -677,7 +677,7 @@ module.exports = {
                 const errorOnDeckFind = new bootstrap.Discord.MessageEmbed()
                     .setColor(bootstrap.messageColorRed)
                     .setAuthor("Error: Cannot find this deck")
-                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type $tutorial or $setup to find a discord link");
+                    .setDescription("If you're receiving this error, please try again. If it persists. Reach out to the developers on their discord. Type !tutorial or !setup to find a discord link");
                 channel.send(errorOnDeckFind);
                 return
             }
@@ -723,7 +723,7 @@ module.exports = {
                     if (collected.size === 0 && editedEmbed[0] === "You"){
                         const editedEndingMessage = new bootstrap.Discord.MessageEmbed()
                             .setColor(bootstrap.messageColorRed)
-                            .setTitle("Update Link Timeout. Please type $updatedeck <deckname> again.");
+                            .setTitle("Update Link Timeout. Please type !updatedeck <deckname> again.");
                         reaction.message.edit(editedEndingMessage);
                     }
                 }
